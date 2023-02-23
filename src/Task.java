@@ -3,7 +3,7 @@ import java.util.Objects;
 public class Task {
     private static int idGenerator;
     private String title;
-    private int id;
+    private Integer id;
     private String description;
 
     public Task(String title, String description) {
@@ -21,7 +21,7 @@ public class Task {
         this.title = title;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

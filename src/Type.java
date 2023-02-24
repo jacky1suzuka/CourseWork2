@@ -1,3 +1,5 @@
-public class Type {
+public enum Type {
+    WORK,
+    PERSONAL;
 
 }

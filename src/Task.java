@@ -60,12 +60,12 @@ public abstract class Task {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
-        return Objects.equals(title, task.title) && type == task.type && Objects.equals(dateTime, task.dateTime) && Objects.equals(id, task.id) && Objects.equals(description, task.description);
+        return id.equals(task.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, type, dateTime, id, description);
+        return Objects.hash(id);
     }
 
     @Override

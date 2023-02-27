@@ -100,6 +100,7 @@ public class TaskService {
     public static Collection<Task> getAllByDate() {
         Collection<Task> relevantTasks = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите дату");
         String dateString = scanner.nextLine();
         LocalDate parsedDate = null;
         try {

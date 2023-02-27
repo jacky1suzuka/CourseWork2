@@ -18,7 +18,9 @@ public class Main {
                 case "4":
                     Collection<Task> tasks = TaskService.getAllByDate();
                     if (!tasks.isEmpty()) {
-                        System.out.println(tasks);
+                        for (Task task : tasks) {
+                            System.out.println(task);
+                        }
                     }
                     break;
                 case "5":

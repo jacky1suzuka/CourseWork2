@@ -3,13 +3,14 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoField;
 import java.util.Objects;
 
-public class Task {
+public abstract class Task {
     private static int idGenerator;
     private String title;
-    Type type;
-    LocalDateTime dateTime;
+    private Type type;
+    private LocalDateTime dateTime;
     private Integer id;
     private String description;
+    private String repeatability;
 
     public Task(String title, Type type, String description) {
         idGenerator++;
@@ -18,6 +19,18 @@ public class Task {
         this.dateTime = LocalDateTime.now();
         this.id = idGenerator;
         this.description = description;
+    }
+
+    public String getRepeatability() {
+        return repeatability;
+    }
+
+    public void setRepeatability(String repeatability) {
+        this.repeatability = repeatability;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
     public String getTitle() {
@@ -40,6 +53,8 @@ public class Task {
         this.description = description;
     }
 
+    public abstract boolean appearsIn(LocalDate date);
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -56,7 +71,6 @@ public class Task {
     @Override
     public String toString() {
         return "Название: " + title + "\nОписание: " + description + "\nid: " + id  + "\nТип задачи: " + type + "\nДата создания: "
-                + dateTime.get(ChronoField.YEAR) + "-" + dateTime.get(ChronoField.MONTH_OF_YEAR) + "-" + dateTime.get(ChronoField.DAY_OF_MONTH) +
-                "\nВремя создания: " + dateTime.get(ChronoField.HOUR_OF_DAY) + "-" + dateTime.get(ChronoField.MINUTE_OF_HOUR) + "-" + dateTime.get(ChronoField.SECOND_OF_MINUTE);
+                + dateTime.get(ChronoField.YEAR) + "-" + dateTime.get(ChronoField.MONTH_OF_YEAR) + "-" + dateTime.get(ChronoField.DAY_OF_MONTH) + "\nПовторяемость: " + repeatability + "\n";
     }
 }

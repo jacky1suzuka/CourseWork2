@@ -1,9 +1,8 @@
-
+import java.util.Collection;
 
 public class Main {
     public static void main(String[] args) {
 
-        label:
         while (true) {
             String command = TaskService.start();
             switch (command) {
@@ -11,13 +10,22 @@ public class Main {
                     TaskService.add();
                     break;
                 case "2":
-                    TaskService.get();
+                    TaskService.remove();
                     break;
                 case "3":
-                    break label;
+                    TaskService.get();
+                    break;
+                case "4":
+                    Collection<Task> tasks = TaskService.getAllByDate();
+                    if (!tasks.isEmpty()) {
+                        System.out.println(tasks);
+                    }
+                    break;
+                case "5":
+                    return;
                 default:
-                    System.out.println("Перезапустите программу и введите корректное значение!");
-                    break label;
+                    System.out.println("Введите корректное значение!");
+                    break;
             }
         }
     }

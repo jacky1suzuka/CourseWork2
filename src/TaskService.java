@@ -61,6 +61,10 @@ public class TaskService {
                 case "5":
                     task = new OneTimeTask(title, type, description);
                     task.setRepeatability("Однократная");
+                    break;
+                default:
+                    System.out.println("Введено некорректное значение!");
+                    return;
             }
             System.out.println("Задача создана:\n\n" + task);
             TaskService.taskMap.put(task.getId(),task);

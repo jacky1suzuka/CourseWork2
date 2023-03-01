@@ -15,7 +15,7 @@ public class TaskService {
                 "\n3.Получить задачу по id" +
                 "\n4.Получить задачи по дате" +
                 "\n5.Завершить работу");
-        return scanner.next();
+        return scanner.nextLine();
     }
 
     public static void add() {
@@ -25,6 +25,10 @@ public class TaskService {
         while (true) {
             System.out.println("Введите название задачи");
             String title = scanner.nextLine();
+            if (title.isBlank()) {
+                System.out.println("Название задачи не может быть пустым");
+                break;
+            }
             System.out.println("Выберите тип задачи: 1 - личная, 2 - рабочая");
             Type type;
             String input = scanner1.nextLine();
@@ -38,6 +42,10 @@ public class TaskService {
             }
             System.out.println("Введите описание");
             String description = scanner.nextLine();
+            if (description.isBlank()) {
+                System.out.println("Описание задачи не может быть пустым!");
+                break;
+            }
             System.out.println("Выберите повторяемость: 1 - Ежегодная, 2 - Ежемесячная, 3 - Еженедельная, 4 - Ежедневная, 5 - Однократная");
             String repeatability = scanner2.nextLine();
             Task task = null;
